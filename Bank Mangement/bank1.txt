@@ -1,0 +1,256 @@
+void Bank :: showAll(){
+    ifstream fin;
+    getline(fin,acc_no,'*');
+    getline(fin,name,'*');
+    getline(fin,princi,'\n');
+      cout<<"\n\n\n";
+      cout<<"\t\t\t\t Account No. \t\t\t\t\t Name \t\t\t\t\t Prinicipal Amt."<<endl;
+
+    while(!fin.eof()){
+      cout<<"\t\t\t\t"<<acc_no<< "\t\t\t\t\t" <<name <<"\t\t\t\t\t" <<princi<<endl;
+      getline(fin,acc_no,'*');
+      getline(fin,name,'*');
+      getline(fin,princi,'\n');
+
+    }
+
+    fin.close();
+    
+}
+
+void Bank ::addAccount()
+{
+    cout << "Enter Account Number :: " << endl;
+    getline(cin, acc_no);
+    cout << "Enter your Name :: " << endl;
+    getline(cin, name);
+    cout << "Enter the Principal Amount :: " << endl;
+    getline(cin, princi);
+
+    ofstream fout;
+    fout.open("bank.txt",ios::app);
+    fout << acc_no << "*" << name << "*" << princi << endl;
+    fout.close();
+}
+
+class Bank{
+    string name,acc_no,depo,with,princi;
+
+    void addAccount();
+    void showAll();
+    void searchAcc();
+    void deposit();
+    void withdraw();
+    void deleteAcc();
+    void inquiry();
+};
+
+
+int main()
+{
+
+    char choice;
+    cout << "----------------------------" << endl;
+    cout << "1-Create New Account" << endl;
+    cout << "2-Show All Account" << endl;
+    cout << "3-Search Account" << endl;
+    cout << "4-Deposit Money" << endl;
+    cout << "5-Withdraw Money" << endl;
+    cout << "6-Delete Account" << endl;
+    cout << "7-Banking Inquiry" << endl;
+    cout << "8-Exit" << endl;
+    cout << "Enter your Choice :" << endl;
+    cin >> choice;
+
+    switch (choice)
+    {
+    case '1':
+
+        break;
+    case '2' :
+
+        break;
+    case '3' :
+
+        break;
+    case '4':
+
+        break;
+    case  '5':
+
+        break;
+    case '6':
+
+        break;
+    case '7' :
+
+        break;
+    case '8' :
+
+        break;
+
+    default:
+    cout<<"Invalid Code........"<<endl;
+        break;
+    }
+}
+
+void Bank ::addAccount()
+{
+    cout << "Enter Account Number :: " << endl;
+    getline(cin, acc_no);
+    cout << "Enter your Name :: " << endl;
+    getline(cin, name);
+    cout << "Enter the Principal Amount :: " << endl;
+    getline(cin, princi);
+
+    ofstream fout;
+
+
+    void Bank ::withdraw()
+{
+
+    cout << "Enter Account Number : " << endl;
+    cin >> search;
+    cout << "Enter the amount of Money to Withdraw :: " << endl;
+    cin >> with;
+
+    ifstream fin, fin1;
+    ofstream fout, fout1;
+    fin.open("bank.txt");
+    // fout.open("Temp.txt");
+    getline(fin, acc_no, '*');
+    getline(fin, name, '*');
+    getline(fin, princi, '\n');
+    cout << "\t\t\t\tAccount No.\t\t\t\t\tName\t\t\t\t\tPrinicipal Amt." << endl;
+
+    while (!fin.eof())
+    {
+
+        if (search == acc_no)
+        {
+            princi1 = stoi(princi) - stoi(with);
+            with1 = stoi(with);
+            princi4 = stoi(princi);
+            princi2 = to_string(princi1);
+            if (princi4 > with1)
+            {
+                cout << "\t\t\t\t" << acc_no << "\t\t\t\t\t\t" << name << "\t\t\t\t\t" << princi2 << endl;
+                name1 = name;
+                acc_no1 = acc_no;
+                break;
+            }
+
+            else
+            {
+                cout << "Not Sufficient Balance" << endl;
+                break;
+            }
+        }
+
+        else
+        {
+
+            getline(fin, acc_no, '*');
+            getline(fin, name, '*');
+            getline(fin, princi, '\n');
+        }
+    }
+
+
+        else
+        {
+
+            getline(fin, acc_no, '*');
+            getline(fin, name, '*');
+            getline(fin, princi, '\n');
+        }
+    }
+
+    // ofstream fout;
+    fout.open("bank.txt", ios::app);
+    fout << acc_no1 << "*" << name1 << "*" << princi2 << endl;
+};
+
+
+void Bank ::deposit()
+{
+
+    cout << "Enter Account Number : " << endl;
+    cin >> search;
+    cout << "Enter the amount of Money to be Deposited :: " << endl;
+    cin >> depo;
+
+    fstream file, file1;
+    file.open("bank.txt", ios::in);
+    file1.open("data1.txt", ios::out | ios::app);
+    file >> acc_no >> name >> princi;
+    // ifstream fin;
+    // fin.open("bank.txt");
+    getline(file, acc_no, '*');
+    getline(file, name, '*');
+    getline(file, princi, '\n');
+    // cout << "\t\t\t\tAccount No.\t\t\t\t\tName\t\t\t\t\tPrinicipal Amt." << endl;
+    // princi1 = stoi(depo) + stoi(princi);
+    // princi2 = to_string(princi1);
+
+    // while (!fin.eof())
+    // {
+
+    //     if (search == acc_no)
+    //     {
+    //         cout << "\t\t\t\t" << acc_no << "\t\t\t\t\t\t" << name << "\t\t\t\t\t" << princi2 << endl;
+    //         name1 = name;
+    //         acc_no1 = acc_no;
+
+    //         acc_no.erase();
+    //         name.erase();
+    //         princi.erase();
+    //         break;
+    //     }
+    //     else
+    //     {
+
+    //         getline(fin, acc_no, '*');
+    //         getline(fin, name, '*');
+    //         getline(fin, princi, '\n');
+    //     }
+    // }
+    // ofstream fout;
+    // fout.open("bank.txt", ios::app);
+    // fout << acc_no1 << "*" << name1 << "*" << princi2 << endl;
+
+    // fout.close();
+
+    while (!file.eof())
+    {
+        if ((acc_no == search))
+        {
+            cout << "Current Amount :: " << princi << endl;
+            princi1 = stoi(depo) + stoi(princi);
+            princi2 = to_string(princi1);
+            cout << "Updated Amount :: " << princi2 << endl;
+            file1 << acc_no << '*' << name << '*' << princi2 << endl;
+        }
+        else
+        {
+            file1 << acc_no << '*' << name << '*' << princi << endl;
+        }
+        // file>>acc_no>>name>>princi>>endl;
+        getline(file, acc_no, '*');
+        getline(file, name, '*');
+        getline(file, princi, '\n');
+    }
+    file.close();
+    file1.close();
+    remove("bank.txt");
+    rename("data1.txt","bank.txt");
+};
+
+void Bank ::withdraw()
+{
+
+    cout << "Enter Account Number : " << endl;
+    cin >> search;
+    cout << "Enter the amount of Money to Withdraw :: " << endl;
+    cin >> with;
